@@ -1,0 +1,10 @@
+m.haishangjiayi.cn {
+    reverse_proxy localhost:3003
+    log {
+        output file /var/log/caddy/m.haishangjiayi.cn.log
+        format json
+    }
+}
+m.haishangjiayi.cn:80 {
+    redir https://m.haishangjiayi.cn{uri} permanent
+}

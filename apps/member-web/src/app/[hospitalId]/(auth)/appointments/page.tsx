@@ -165,7 +165,7 @@ function AppointmentList({ appointments, type, hospitalId }: { appointments: App
 function AppointmentCard({ appointment, hospitalId }: { appointment: Appointment; hospitalId: string }) {
   return (
     <Link href={`/${hospitalId}/appointments/${appointment.id}`}>
-      <Card className="bg-white shadow-sm cursor-pointer hover:shadow-md transition-shadow">
+      <Card className="bg-white shadow-sm cursor-pointer hover:shadow-md transition-shadow mb-4">
         <CardContent className="p-4">
         <div className="flex items-start justify-between mb-3">
           <div className="flex-1">

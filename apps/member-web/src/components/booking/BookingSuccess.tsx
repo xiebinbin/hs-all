@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { CheckCircle, Calendar, Clock, MapPin, User, Phone, Share, Download } from "lucide-react";
+import { CheckCircle, Calendar, Clock, MapPin, User, Phone } from "lucide-react";
 import { BookingData } from "@/types/booking";
 import Link from "next/link";
 
@@ -42,24 +42,7 @@ export function BookingSuccess({ bookingData, hospitalId }: BookingSuccessProps)
     }
   };
 
-  const handleShare = () => {
-    if (navigator.share) {
-      navigator.share({
-        title: '预约成功',
-        text: `我已成功预约${formatDate(bookingData.appointmentDate!)} ${bookingData.appointmentTime}的${getClinicTypeText()}`,
-        url: window.location.href
-      });
-    } else {
-      // 复制到剪贴板
-      const text = `预约成功！\n预约单号：${bookingNumber}\n就诊时间：${formatDate(bookingData.appointmentDate!)} ${bookingData.appointmentTime}`;
-      navigator.clipboard.writeText(text);
-    }
-  };
 
-  const handleDownload = () => {
-    // 这里可以实现下载预约单的功能
-    alert('下载功能开发中...');
-  };
 
   return (
     <div className="px-4 py-6">
@@ -204,24 +187,6 @@ export function BookingSuccess({ bookingData, hospitalId }: BookingSuccessProps)
 
       {/* 操作按钮 */}
       <div className="space-y-3">
-        <div className="grid grid-cols-2 gap-3">
-          <Button 
-            variant="outline" 
-            onClick={handleShare}
-            className="flex items-center justify-center"
-          >
-            <Share className="w-4 h-4 mr-2" />
-            分享
-          </Button>
-          <Button 
-            variant="outline" 
-            onClick={handleDownload}
-            className="flex items-center justify-center"
-          >
-            <Download className="w-4 h-4 mr-2" />
-            下载
-          </Button>
-        </div>
         
         <Link href={`/${hospitalId}/appointments`}>
           <Button className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white">

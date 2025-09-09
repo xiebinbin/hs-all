@@ -1,7 +1,6 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { MapPin, ChevronRight } from "lucide-react";
 import { BookingData } from "@/types/booking";
 
@@ -31,12 +30,6 @@ export function HospitalSelection({ bookingData, onNext }: HospitalSelectionProp
       name: "和炯社区卫生服务站",
       address: "上海市浦东新区和炯路123号",
       distance: "2.5km"
-    },
-    {
-      id: "3",
-      name: "浦东新区人民医院",
-      address: "上海市浦东新区川沙路4425号",
-      distance: "5.8km"
     }
   ];
 

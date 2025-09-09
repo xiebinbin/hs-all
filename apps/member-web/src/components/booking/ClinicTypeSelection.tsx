@@ -19,7 +19,7 @@ interface ClinicTypeSelectionProps {
   onPrevious?: () => void;
 }
 
-export function ClinicTypeSelection({ bookingData, onNext, onPrevious }: ClinicTypeSelectionProps) {
+export function ClinicTypeSelection({ onNext }: ClinicTypeSelectionProps) {
   const clinicOptions: ClinicOption[] = [
     {
       type: 'general',

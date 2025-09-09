@@ -1,6 +1,6 @@
 "use client";
 
-import { Calendar, Clock, MapPin, User, CheckCircle, XCircle } from "lucide-react";
+import { Calendar, CheckCircle, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";

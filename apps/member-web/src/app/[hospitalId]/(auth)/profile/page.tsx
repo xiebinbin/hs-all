@@ -1,5 +1,5 @@
 import { User, Calendar } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+
 import { BottomNavigation } from "@/components/bottom-navigation";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";

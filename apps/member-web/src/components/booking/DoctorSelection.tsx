@@ -26,7 +26,7 @@ interface DoctorSelectionProps {
   onPrevious?: () => void;
 }
 
-export function DoctorSelection({ bookingData, onNext, onPrevious }: DoctorSelectionProps) {
+export function DoctorSelection({ bookingData, onNext }: DoctorSelectionProps) {
   // 根据门诊类型显示不同的医生
   const getDoctors = (): Doctor[] => {
     if (bookingData.clinicType === 'expert') {

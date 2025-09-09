@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { BottomNavigation } from "@/components/bottom-navigation";
 import { EnhancedCarousel, CarouselSlide } from "@/components/enhanced-carousel";
 import Link from "next/link";
-import { Avatar } from "@/components/ui/avatar";
+
 
 export default async function Home({ params }: { params: { hospitalId: string } }) {
   const { hospitalId } = await params;
@@ -25,7 +25,7 @@ export default async function Home({ params }: { params: { hospitalId: string } 
             <div className="flex flex-row items-center">
               <div className="w-4/5">
                <p className="text-blue-100 text-sm mt-1">
-                面向社会，以促进健康为中心开展预防医疗、保健等教育和计划生育技术指导，"六位一体"的社区卫生服务。
+                面向社会，以促进健康为中心开展预防医疗、保健等教育和计划生育技术指导，&ldquo;六位一体&rdquo;的社区卫生服务。
               </p>
               </div>
               <div className="w-1/5">
@@ -141,7 +141,7 @@ export default async function Home({ params }: { params: { hospitalId: string } 
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="text-sm font-medium text-gray-900 mb-1">
-                      【康德"医"问】失眠精神康复疗愈，探索三林康德品牌
+                      【康德&ldquo;医&rdquo;问】失眠精神康复疗愈，探索三林康德品牌
                     </h3>
                     <p className="text-xs text-gray-500">1小时前</p>
                   </div>

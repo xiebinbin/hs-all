@@ -1,9 +1,6 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Calendar, Clock, Users, ChevronLeft, ChevronRight } from "lucide-react";
+import { Calendar, Clock, ChevronLeft, ChevronRight } from "lucide-react";
 import { BookingData } from "@/types/booking";
 import { useState } from "react";
 
@@ -35,7 +32,7 @@ interface DepartmentScheduleProps {
   onPrevious?: () => void;
 }
 
-export function DepartmentSchedule({ bookingData, onNext, onPrevious }: DepartmentScheduleProps) {
+export function DepartmentSchedule({ bookingData, onNext }: DepartmentScheduleProps) {
   const [selectedDate, setSelectedDate] = useState<string>('');
   
   // 生成未来7天的排班数据

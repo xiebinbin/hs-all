@@ -4,8 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Separator } from "@/components/ui/separator";
-import { MapPin, Calendar, Clock, User, Phone, AlertCircle, Plus, ChevronRight } from "lucide-react";
+import { MapPin, Calendar, Clock, User, Phone, AlertCircle, Plus } from "lucide-react";
 import { PatientSelectionModal } from "./PatientSelectionModal";
 import { BookingData, PatientInfo } from "@/types/booking";
 import { useState } from "react";
@@ -16,7 +15,7 @@ interface BookingConfirmationProps {
   onPrevious?: () => void;
 }
 
-export function BookingConfirmation({ bookingData, onNext, onPrevious }: BookingConfirmationProps) {
+export function BookingConfirmation({ bookingData, onNext }: BookingConfirmationProps) {
   const [selectedPatient, setSelectedPatient] = useState<PatientInfo | null>(null);
   const [showPatientModal, setShowPatientModal] = useState(false);
 

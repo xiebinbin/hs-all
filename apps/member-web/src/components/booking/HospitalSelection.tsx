@@ -16,7 +16,7 @@ interface HospitalSelectionProps {
   onNext: (data: Partial<BookingData>) => void;
 }
 
-export function HospitalSelection({ bookingData, onNext }: HospitalSelectionProps) {
+export function HospitalSelection({ onNext }: HospitalSelectionProps) {
   // 模拟医院数据
   const hospitals: Hospital[] = [
     {

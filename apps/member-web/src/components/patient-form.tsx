@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
-interface PatientData {
+export interface PatientData {
   id?: number;
   name: string;
   socialSecurityNumber: string;

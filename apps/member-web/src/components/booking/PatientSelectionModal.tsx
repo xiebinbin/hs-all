@@ -59,7 +59,7 @@ export function PatientSelectionModal({ open, onClose, onSelectPatient }: Patien
     onClose();
   };
 
-  const handleAddPatient = (patientData: any) => {
+  const handleAddPatient = (patientData: PatientInfo) => {
     const newPatient: PatientInfo = {
       id: Date.now(),
       ...patientData

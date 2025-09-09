@@ -20,7 +20,7 @@ interface DepartmentSelectionProps {
   onPrevious?: () => void;
 }
 
-export function DepartmentSelection({ bookingData, onNext, onPrevious }: DepartmentSelectionProps) {
+export function DepartmentSelection({  onNext }: DepartmentSelectionProps) {
   const departments: Department[] = [
     {
       id: "internal",

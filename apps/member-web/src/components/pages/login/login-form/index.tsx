@@ -79,6 +79,7 @@ export function LoginForm() {
             setStep('otp');
             setCountdown(60);
         } catch (error) {
+            console.error('获取验证码失败:', error);
             alert('获取验证码失败，请重试');
         } finally {
             setIsLoading(false);
@@ -95,6 +96,7 @@ export function LoginForm() {
             await new Promise(resolve => setTimeout(resolve, 1000)); // 模拟API调用
             setCountdown(60);
         } catch (error) {
+            console.error('重新获取验证码失败:', error);
             alert('重新获取验证码失败，请重试');
         } finally {
             setIsLoading(false);
@@ -120,6 +122,7 @@ export function LoginForm() {
             await new Promise(resolve => setTimeout(resolve, 1000)); // 模拟API调用
             alert('登录成功');
         } catch (error) {
+            console.error('登录失败:', error);
             alert('验证码错误，请重试');
         } finally {
             setIsLoading(false);

@@ -1,7 +1,6 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Calendar, Clock, Award, ChevronLeft, ChevronRight } from "lucide-react";
@@ -34,7 +33,7 @@ interface DoctorScheduleProps {
   onPrevious?: () => void;
 }
 
-export function DoctorSchedule({ bookingData, onNext, onPrevious }: DoctorScheduleProps) {
+export function DoctorSchedule({ bookingData, onNext }: DoctorScheduleProps) {
   const [selectedDate, setSelectedDate] = useState<string>('');
   
   // 生成医生排班数据

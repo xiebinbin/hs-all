@@ -3,7 +3,7 @@
 import { use } from "react";
 import { useRouter } from "next/navigation";
 import { TopNavigation } from "@/components/top-navigation";
-import { PatientForm } from "@/components/patient-form";
+import { PatientForm, PatientData } from "@/components/patient-form";
 
 export default function PatientCreatePage({ 
   params 
@@ -13,7 +13,7 @@ export default function PatientCreatePage({
   const router = useRouter();
   const { hospitalId } = use(params);
 
-  const handleSave = (data: any) => {
+  const handleSave = (data: PatientData) => {
     console.log('创建患者信息:', data);
     // 这里可以调用API创建数据
     router.push(`/${hospitalId}/patients`);

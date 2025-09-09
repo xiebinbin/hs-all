@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, use } from "react";
+import { use } from "react";
 import { useRouter } from "next/navigation";
 import { TopNavigation } from "@/components/top-navigation";
-import { PatientForm } from "@/components/patient-form";
+import { PatientForm, PatientData } from "@/components/patient-form";
 
 export default function PatientEditPage({ 
   params 
@@ -11,7 +11,7 @@ export default function PatientEditPage({
   params: Promise<{ hospitalId: string; id: string }> 
 }) {
   const router = useRouter();
-  const { hospitalId, id } = use(params);
+  const { hospitalId } = use(params);
   
   // 模拟患者数据 - 与列表数据保持一致
   const patient = {
@@ -25,7 +25,7 @@ export default function PatientEditPage({
     address: "上海市浦东新区三林镇"
   };
 
-  const handleSave = (data: any) => {
+  const handleSave = (data: PatientData) => {
     console.log('保存患者信息:', data);
     // 这里可以调用API保存数据
     router.push(`/${hospitalId}/patients`);

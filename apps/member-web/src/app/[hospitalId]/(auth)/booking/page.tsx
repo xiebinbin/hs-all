@@ -12,7 +12,7 @@ import { DoctorSchedule } from "@/components/booking/DoctorSchedule";
 import { BookingConfirmation } from "@/components/booking/BookingConfirmation";
 import { BookingSuccess } from "@/components/booking/BookingSuccess";
 
-import { BookingData, BookingStep, ClinicType } from '@/types/booking';
+import { BookingData, BookingStep } from '@/types/booking';
 
 export default function BookingPage({ params }: { params: Promise<{ hospitalId: string }> }) {
   const { hospitalId } = use(params);
@@ -28,19 +28,19 @@ export default function BookingPage({ params }: { params: Promise<{ hospitalId: 
   });
 
   // 更新预约数据
-  const updateBookingData = (data: Partial<BookingData>) => {
-    setBookingData(prev => ({ ...prev, ...data }));
-  };
+  // const updateBookingData = (data: Partial<BookingData>) => {
+  //   setBookingData(prev => ({ ...prev, ...data }));
+  // };
 
   // 下一步
-  const nextStep = (step: BookingStep) => {
-    setCurrentStep(step);
-  };
+  // const nextStep = (step: BookingStep) => {
+  //   setCurrentStep(step);
+  // };
 
   // 处理步骤数据更新
-  const handleStepData = (data: Partial<BookingData>) => {
-    setBookingData(prev => ({ ...prev, ...data }));
-  };
+  // const handleStepData = (data: Partial<BookingData>) => {
+  //   setBookingData(prev => ({ ...prev, ...data }));
+  // };
 
   // 处理院区选择
   const handleHospitalSelect = (data: Partial<BookingData>) => {

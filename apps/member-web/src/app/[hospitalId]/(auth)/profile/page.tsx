@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default async function Profile({ params }: { params: { hospitalId: string } }) {
   const { hospitalId } = await params;
-  
+
   return (
     <div className="min-h-screen">
       {/* 头部用户信息 */}
@@ -30,41 +30,43 @@ export default async function Profile({ params }: { params: { hospitalId: string
           {/* 预约记录 */}
           <Link href={`/${hospitalId}/appointments`}>
             <div className="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 rounded-lg flex items-center justify-center">
-                      <Calendar className="w-5 h-5 text-blue-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-gray-900">预约记录</h3>
-                    </div>
-                  </div>
-                  <div className="text-gray-400">
-                    →
-                  </div>
-                </div>
-            </div>
-          </Link>
-
-          {/* 分割线 */}
-          <Separator/>
-
-          {/* 就诊人员 */}
-          <div className="p-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center">
-                    <User className="w-5 h-5 text-green-600" />
+                    <Calendar className="w-5 h-5 text-blue-600" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-gray-900">就诊人员</h3>
+                    <h3 className="font-medium text-gray-900">预约记录</h3>
                   </div>
                 </div>
                 <div className="text-gray-400">
                   →
                 </div>
               </div>
-          </div>
+            </div>
+          </Link>
+
+          {/* 分割线 */}
+          <Separator />
+
+          {/* 就诊人员 */}
+          <Link href={`/${hospitalId}/patients`}>
+            <div className="p-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center">
+                    <User className="w-5 h-5 text-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-gray-900">患者列表</h3>
+                  </div>
+                </div>
+                <div className="text-gray-400">
+                  →
+                </div>
+              </div>
+            </div>
+          </Link>
         </div>
       </div>
 

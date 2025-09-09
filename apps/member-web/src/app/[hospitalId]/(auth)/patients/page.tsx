@@ -9,13 +9,25 @@ import Link from "next/link";
 export default async function Patients({ params }: { params: { hospitalId: string } }) {
   const { hospitalId } = await params;
 
+  // 计算年龄的函数
+  const calculateAge = (birthday: string) => {
+    const today = new Date();
+    const birthDate = new Date(birthday);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  };
+
   const patients = [
     {
       id: 1,
       name: "谢彬彬",
       socialSecurityNumber: "5107*************357X",
       phone: "138****8888",
-      age: 28,
+      birthday: "1996-03-15",
       gender: "男",
       lastVisit: "2024-01-15",
       address: "上海市浦东新区三林镇"
@@ -25,7 +37,7 @@ export default async function Patients({ params }: { params: { hospitalId: strin
       name: "赵靖宇",
       socialSecurityNumber: "5107*************357X",
       phone: "139****9999",
-      age: 35,
+      birthday: "1989-07-22",
       gender: "女",
       lastVisit: "2024-01-12",
       address: "上海市浦东新区三林镇"
@@ -35,7 +47,7 @@ export default async function Patients({ params }: { params: { hospitalId: strin
       name: "李明华",
       socialSecurityNumber: "3101*************123X",
       phone: "136****7777",
-      age: 42,
+      birthday: "1982-11-08",
       gender: "男",
       lastVisit: "2024-01-10",
       address: "上海市浦东新区三林镇"
@@ -45,7 +57,7 @@ export default async function Patients({ params }: { params: { hospitalId: strin
       name: "王小红",
       socialSecurityNumber: "3101*************456X",
       phone: "135****6666",
-      age: 29,
+      birthday: "1995-05-12",
       gender: "女",
       lastVisit: "2024-01-08",
       address: "上海市浦东新区三林镇"
@@ -55,7 +67,7 @@ export default async function Patients({ params }: { params: { hospitalId: strin
       name: "张伟强",
       socialSecurityNumber: "3101*************789X",
       phone: "137****5555",
-      age: 38,
+      birthday: "1986-09-30",
       gender: "男",
       lastVisit: "2024-01-05",
       address: "上海市浦东新区三林镇"
@@ -113,7 +125,7 @@ export default async function Patients({ params }: { params: { hospitalId: strin
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900">{patient.name}</h3>
-                      <p className="text-sm text-gray-500">{patient.age}岁 · {patient.gender}</p>
+                      <p className="text-sm text-gray-500">{calculateAge(patient.birthday)}岁 · {patient.gender}</p>
                     </div>
                   </div>
                 </div>

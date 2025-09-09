@@ -11,7 +11,7 @@ interface PatientData {
   name: string;
   socialSecurityNumber: string;
   phone: string;
-  age: number;
+  birthday: string;
   gender: string;
   lastVisit?: string;
   address?: string;
@@ -35,7 +35,7 @@ export function PatientForm({
     name: initialData?.name || "",
     socialSecurityNumber: initialData?.socialSecurityNumber || "",
     phone: initialData?.phone || "",
-    age: initialData?.age || 0,
+    birthday: initialData?.birthday || "",
     gender: initialData?.gender || "男",
     lastVisit: initialData?.lastVisit || "",
     address: initialData?.address || "",
@@ -121,13 +121,13 @@ export function PatientForm({
             
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                年龄
+                生日
               </label>
               <Input
-                type="number"
-                value={formData.age}
-                onChange={(e) => handleInputChange('age', parseInt(e.target.value) || 0)}
-                placeholder="请输入年龄"
+                type="date"
+                value={formData.birthday}
+                onChange={(e) => handleInputChange('birthday', e.target.value)}
+                placeholder="请选择生日"
                 className="w-full"
               />
             </div>

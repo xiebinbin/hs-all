@@ -19,7 +19,7 @@ export default function PatientEditPage({
     name: "谢彬彬",
     socialSecurityNumber: "5107*************357X",
     phone: "138****8888",
-    age: 28,
+    birthday: "1996-03-15",
     gender: "男",
     lastVisit: "2024-01-15",
     address: "上海市浦东新区三林镇"

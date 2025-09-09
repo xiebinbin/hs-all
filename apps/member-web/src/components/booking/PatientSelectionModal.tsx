@@ -25,7 +25,7 @@ export function PatientSelectionModal({ open, onClose, onSelectPatient }: Patien
       name: "张三",
       socialSecurityNumber: "110101199001011234",
       phone: "13800138000",
-      age: 34,
+      birthday: "1990-01-01",
       gender: "男",
       lastVisit: "2024-01-15",
       address: "北京市朝阳区"
@@ -35,12 +35,24 @@ export function PatientSelectionModal({ open, onClose, onSelectPatient }: Patien
       name: "李四",
       socialSecurityNumber: "110101199502021234",
       phone: "13900139000",
-      age: 29,
+      birthday: "1995-02-02",
       gender: "女",
       lastVisit: "2024-02-20",
       address: "北京市海淀区"
     }
   ]);
+
+  // 计算年龄的函数
+  const calculateAge = (birthday: string) => {
+    const today = new Date();
+    const birthDate = new Date(birthday);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  };
 
   const handleSelectPatient = (patient: PatientInfo) => {
     onSelectPatient(patient);
@@ -114,7 +126,7 @@ export function PatientSelectionModal({ open, onClose, onSelectPatient }: Patien
                       <div className="flex-1">
                         <div className="flex items-center justify-between mb-1">
                           <h3 className="font-medium text-gray-900">{patient.name}</h3>
-                          <span className="text-xs text-gray-500">{patient.gender} · {patient.age}岁</span>
+                          <span className="text-xs text-gray-500">{patient.gender} · {calculateAge(patient.birthday)}岁</span>
                         </div>
                         <p className="text-sm text-gray-600 mb-1">手机: {patient.phone}</p>
                         <p className="text-xs text-gray-500">上次就诊: {formatLastVisit(patient.lastVisit)}</p>

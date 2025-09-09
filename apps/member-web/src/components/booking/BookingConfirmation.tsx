@@ -20,6 +20,18 @@ export function BookingConfirmation({ bookingData, onNext, onPrevious }: Booking
   const [selectedPatient, setSelectedPatient] = useState<PatientInfo | null>(null);
   const [showPatientModal, setShowPatientModal] = useState(false);
 
+  // 计算年龄的函数
+  const calculateAge = (birthday: string) => {
+    const today = new Date();
+    const birthDate = new Date(birthday);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  };
+
   const handleSelectPatient = (patient: PatientInfo) => {
     setSelectedPatient(patient);
   };
@@ -168,7 +180,7 @@ export function BookingConfirmation({ bookingData, onNext, onPrevious }: Booking
                 </Avatar>
                 <div>
                   <p className="font-medium text-gray-900">{selectedPatient.name}</p>
-                  <p className="text-sm text-gray-600">{selectedPatient.gender} · {selectedPatient.age}岁</p>
+                  <p className="text-sm text-gray-600">{selectedPatient.gender} · {calculateAge(selectedPatient.birthday)}岁</p>
                 </div>
               </div>
               <Button 

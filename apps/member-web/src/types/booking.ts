@@ -7,7 +7,7 @@ export interface PatientInfo {
   name: string;
   socialSecurityNumber: string;
   phone: string;
-  age: number;
+  birthday: string;
   gender: string;
   address?: string;
   lastVisit?: string;

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { BottomNavigation } from "@/components/bottom-navigation";
 import { EnhancedCarousel, CarouselSlide } from "@/components/enhanced-carousel";
 import Link from "next/link";
+import { Avatar } from "@/components/ui/avatar";
 
 export default async function Home({ params }: { params: { hospitalId: string } }) {
   const { hospitalId } = await params;
@@ -12,30 +13,23 @@ export default async function Home({ params }: { params: { hospitalId: string } 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* 头部区域 */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+      <div className="bg-primary text-white">
         <div className="px-4 py-6">
-          <div className="flex items-center space-x-3 mb-4">
-            <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-              <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                三
+          <div className="flex flex-col items-center space-x-3 mb-4">
+            <div className="flex item-center">
+              <img className="w-8 h-8 mr-1" src="/logo.png" alt="" />
+              <div className="flex items-center">
+                <h1 className="text-xl font-bold">三林康德社区卫生服务中心</h1>
               </div>
             </div>
-            <div>
-              <h1 className="text-xl font-bold">三林康德社区卫生服务中心</h1>
-              <p className="text-blue-100 text-sm mt-1">
+            <div className="flex flex-row items-center">
+              <div className="w-4/5">
+               <p className="text-blue-100 text-sm mt-1">
                 面向社会，以促进健康为中心开展预防医疗、保健等教育和计划生育技术指导，"六位一体"的社区卫生服务。
               </p>
-            </div>
-          </div>
-
-          {/* 医院建筑图片区域 */}
-          <div className="mt-4 rounded-lg overflow-hidden">
-            <div className="h-32 bg-gradient-to-b from-blue-400 to-blue-500 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-lg mx-auto mb-2 flex items-center justify-center">
-                  <HomeIcon className="w-8 h-8 text-white" />
-                </div>
-                <p className="text-sm text-blue-100">医院外景</p>
+              </div>
+              <div className="w-1/5">
+                <img src="/home-top-bg.svg" alt="" />
               </div>
             </div>
           </div>
@@ -49,6 +43,7 @@ export default async function Home({ params }: { params: { hospitalId: string } 
           autoPlay={true}
           autoPlayInterval={4000}
           showControls={false}
+          showIndicators={false}
           pauseOnHover={true}
         >
           <CarouselSlide className="p-1">

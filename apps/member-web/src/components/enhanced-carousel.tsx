@@ -185,7 +185,7 @@ export function CarouselSlide({
   return (
     <div
       className={cn(
-        "flex aspect-video items-center justify-center rounded-lg bg-muted",
+        "flex h-32 items-center justify-center rounded-lg bg-muted",
         className
       )}
       {...props}

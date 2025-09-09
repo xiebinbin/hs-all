@@ -22,7 +22,7 @@ interface AppointmentDetail {
   status: string;
   doctorName?: string; // 专家门诊才有医生姓名
   doctorTitle?: string; // 专家门诊才有医生职称
-  consultationFee?: number; // 专家门诊才有诊疗费
+
 }
 
 export default function AppointmentDetail({ params }: { params: Promise<{ hospitalId: string; id: string }> }) {
@@ -44,13 +44,11 @@ export default function AppointmentDetail({ params }: { params: Promise<{ hospit
     // 专家门诊和外院专家特有信息
     ...(parseInt(id) % 3 === 0 && {
       doctorName: "李教授",
-      doctorTitle: "主任医师",
-      consultationFee: 200
+      doctorTitle: "主任医师"
     }),
     ...(parseInt(id) % 2 === 0 && parseInt(id) % 3 !== 0 && {
       doctorName: "张主任",
-      doctorTitle: "主任医师",
-      consultationFee: 50
+      doctorTitle: "主任医师"
     })
   };
 
@@ -180,18 +178,7 @@ export default function AppointmentDetail({ params }: { params: Promise<{ hospit
             </div>
             <div className="border-t border-gray-100"></div>
             
-            {/* 专家门诊/外院专家诊疗费 */}
-             {isSpecialClinic && (
-              <>
-                <div className="flex items-center justify-between py-2">
-                  <span className="text-gray-600">诊疗费</span>
-                  <span className={`text-gray-900 font-medium ${
-                     isExternalExpert ? 'text-purple-600' : 'text-orange-600'
-                   }`}>¥{appointment.consultationFee}</span>
-                </div>
-                <div className="border-t border-gray-100"></div>
-              </>
-            )}
+
             
             <div className="flex items-center justify-between py-2">
               <span className="text-gray-600">状态</span>

@@ -100,36 +100,28 @@ export default async function Home({ params }: { params: { hospitalId: string } 
         <div className="grid grid-cols-2 gap-4 mb-6">
           {/* 预约就诊 */}
           <Link href={`/${hospitalId}/booking`}>
-            <Card className="bg-white shadow-sm">
-              <CardContent className="p-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <Calendar className="w-5 h-5 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-gray-900">预约就诊</h3>
-                    <p className="text-sm text-gray-500">在线预约挂号就诊</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <div className="bg-zinc-200/80 flex items-center p-2 rounded-lg">
+              <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                <Calendar className="w-4 h-4 text-blue-600" />
+              </div>
+              <div className="ml-1">
+                <h3 className="font-medium text-gray-900">预约就诊</h3>
+                <p className="text-sm text-gray-500">在线预约就诊</p>
+              </div>
+            </div>
           </Link>
 
           {/* 我的预约 */}
           <Link href={`/${hospitalId}/appointments`}>
-            <Card className="bg-white shadow-sm hover:shadow-md transition-shadow cursor-pointer">
-              <CardContent className="p-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                    <FileText className="w-5 h-5 text-purple-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-gray-900">我的预约</h3>
-                    <p className="text-sm text-gray-500">查看预约记录</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <div className="bg-zinc-200/80 flex items-center p-2 rounded-lg">
+              <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+                <FileText className="w-4 h-4 text-purple-600" />
+              </div>
+              <div className="ml-1">
+                <h3 className="font-medium text-gray-900">我的预约</h3>
+                <p className="text-sm text-gray-500">查看预约记录</p>
+              </div>
+            </div>
           </Link>
         </div>
 
@@ -137,9 +129,11 @@ export default async function Home({ params }: { params: { hospitalId: string } 
         <div className="mb-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-medium text-gray-900">最新公告</h2>
-            <Button variant="ghost" size="sm" className="text-gray-500">
-              查看更多 →
-            </Button>
+            <Link href={`/${hospitalId}/announcements`}>
+              <Button variant="ghost" size="sm" className="text-gray-500">
+                查看更多 →
+              </Button>
+            </Link>
           </div>
 
           <div className="space-y-3">

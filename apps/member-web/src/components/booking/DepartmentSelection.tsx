@@ -11,7 +11,6 @@ interface Department {
   description: string;
   icon: React.ReactNode;
   availableSlots: number;
-  waitTime: string;
   specialties: string[];
 }
 
@@ -29,7 +28,6 @@ export function DepartmentSelection({ bookingData, onNext, onPrevious }: Departm
       description: "内科疾病诊疗",
       icon: <Heart className="w-5 h-5 text-red-600" />,
       availableSlots: 12,
-      waitTime: "约15分钟",
       specialties: ["高血压", "糖尿病", "感冒发烧", "消化不良"]
     },
     {
@@ -38,7 +36,6 @@ export function DepartmentSelection({ bookingData, onNext, onPrevious }: Departm
       description: "外科疾病诊疗",
       icon: <Bone className="w-5 h-5 text-blue-600" />,
       availableSlots: 8,
-      waitTime: "约20分钟",
       specialties: ["外伤处理", "小手术", "伤口缝合", "骨折处理"]
     },
     {
@@ -47,7 +44,6 @@ export function DepartmentSelection({ bookingData, onNext, onPrevious }: Departm
       description: "神经系统疾病",
       icon: <Brain className="w-5 h-5 text-purple-600" />,
       availableSlots: 6,
-      waitTime: "约25分钟",
       specialties: ["头痛", "失眠", "神经痛", "记忆力下降"]
     },
     {
@@ -56,7 +52,6 @@ export function DepartmentSelection({ bookingData, onNext, onPrevious }: Departm
       description: "眼部疾病诊疗",
       icon: <Eye className="w-5 h-5 text-green-600" />,
       availableSlots: 10,
-      waitTime: "约10分钟",
       specialties: ["视力检查", "眼部感染", "干眼症", "近视"]
     },
     {
@@ -65,7 +60,6 @@ export function DepartmentSelection({ bookingData, onNext, onPrevious }: Departm
       description: "耳鼻喉疾病诊疗",
       icon: <Ear className="w-5 h-5 text-orange-600" />,
       availableSlots: 7,
-      waitTime: "约18分钟",
       specialties: ["咽喉炎", "鼻炎", "中耳炎", "听力检查"]
     },
     {
@@ -74,7 +68,6 @@ export function DepartmentSelection({ bookingData, onNext, onPrevious }: Departm
       description: "儿童疾病诊疗",
       icon: <Baby className="w-5 h-5 text-pink-600" />,
       availableSlots: 15,
-      waitTime: "约12分钟",
       specialties: ["儿童感冒", "疫苗接种", "生长发育", "儿童体检"]
     },
     {
@@ -83,7 +76,6 @@ export function DepartmentSelection({ bookingData, onNext, onPrevious }: Departm
       description: "老年疾病诊疗",
       icon: <Users className="w-5 h-5 text-gray-600" />,
       availableSlots: 9,
-      waitTime: "约22分钟",
       specialties: ["慢性病管理", "老年体检", "康复指导", "用药咨询"]
     }
   ];
@@ -120,25 +112,19 @@ export function DepartmentSelection({ bookingData, onNext, onPrevious }: Departm
                     </div>
                   </div>
                   
-                  <div className="flex items-center gap-4 mb-2">
-                    <div className="flex items-center">
-                      <span className="text-xs text-gray-500 mr-1">可预约:</span>
-                      <Badge 
-                        className={`text-xs ${
-                          department.availableSlots > 10 
-                            ? 'bg-green-100 text-green-700'
-                            : department.availableSlots > 5
-                              ? 'bg-yellow-100 text-yellow-700'
-                              : 'bg-red-100 text-red-700'
-                        }`}
-                      >
-                        {department.availableSlots}个号源
-                      </Badge>
-                    </div>
-                    <div className="flex items-center">
-                      <span className="text-xs text-gray-500 mr-1">等候时间:</span>
-                      <span className="text-xs text-blue-600">{department.waitTime}</span>
-                    </div>
+                  <div className="flex items-center mb-2">
+                    <span className="text-xs text-gray-500 mr-1">可预约:</span>
+                    <Badge 
+                      className={`text-xs ${
+                        department.availableSlots > 10 
+                          ? 'bg-green-100 text-green-700'
+                          : department.availableSlots > 5
+                            ? 'bg-yellow-100 text-yellow-700'
+                            : 'bg-red-100 text-red-700'
+                      }`}
+                    >
+                      {department.availableSlots}个号源
+                    </Badge>
                   </div>
                   
                   <div className="flex flex-wrap gap-1">
